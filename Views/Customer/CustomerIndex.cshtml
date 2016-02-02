@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    ViewBag.Title = "CustomerIndex";
+}
+@model EadProject.Models.Order
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    $(document).ready(function () {
+        //alert($('#p').val());
+
+    });
+</script>
+<link rel="stylesheet" type="text/css" href="~/Content/table.css">
+<br /><br />
+<div class="row">
+    <div class="container">
+        <h3 align="center">Welcome @ViewBag.x !!!</h3>
+    </div>
+</div>
+<br />
+<hr>
+<div class="CSSTableGenerator">
+    <table>
+        <tr>
+            
+            <td>Product Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Size</td>
+            <td>Status</td>
+            <td>Total Bill</td>
+            <td>Cancel</td>
+            <td>Order</td>
+
+        </tr>
+        @foreach (var p in ViewBag.OrderList)
+        {
+            if (p.CustomerName == ViewBag.x)
+            {
+            <tr>
+                   <td>@p.ProductName</td>
+                   <td>@p.Price</td>
+                   <td>@p.Quantity</td>
+                   <td>@p.Size</td>
+                   <td>@p.Status</td>
+                   <td>@p.TotalBill</td>
+                @if(p.Status=="delivered")
+                {
+                      <td>----</td>
+                      <td>----</td>
+                }
+                else if (p.Status == "Ordered")
+                {
+                    <td><a href="/Customer/CancelProduct/@p.Id">Cancel</a></td>
+                    <td>----</td>
+                }
+                else
+                {
+                    <td><a href="/Customer/CancelProduct/@p.Id">Cancel</a></td>
+                    <td><a href="/Customer/OrderProduct/@p.Id">Order</a></td>
+                }
+                
+                  </tr>
+            }
+
+        }
+
+    </table>
+</div>
+
+    <br />
+    <br />
+    <br />
+    <hr />
+    <div class="row">
+        <link href="/Content/js-image-slider.css" rel="stylesheet" type="text/css" />
+        <div id="foobar">
+            <footer>
+                <ul>
+                    <li>&copy; <b>@DateTime.Now.Year - ShopIn </b></li>
+                    <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("Refund & Exchange", "RefundAndExchange", "Home")</li>
+                    <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("ShippingInfo", "ShippingInfo", "Home")</li>
+                    <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("Privacy Policy", "ContactUs", "Home")</li>
+                    <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("About", "About", "Home")</li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+
