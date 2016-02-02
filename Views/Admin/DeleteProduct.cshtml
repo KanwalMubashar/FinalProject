@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "DeleteProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model EadProject.Models.Product
+<br />
+<div class="row">
+    <h1 align="center">Delete</h1>
+    <hr />
+    <h3>@ViewBag.message</h3>
+
+</div>
+<div class="row">
+    <form action="~/Admin/AdminIndex" method="post" class="form pull-right">
+        <button type="submit" id="submit" class="btn " style=" background-color:#C00033"><span class="glyphicon glyphicon-arrow-left"><b> Back To Main</b></span></button>
+
+    </form>
+
+</div>
+<form action="~/Admin/Delete" method="post" class="form" role="search">
+    <label class="col-md-2 control-label" for="name">Enter Product Name</label>
+    <div class="form-group ">
+        <input type="text" class="form-control input-lg" name="ProductName" id="UserName" onfocusout="FOCUSOUT" required style="float:left" >
+
+    </div>
+    <button type="submit" id="submit" class="btn btn-success col-lg-offset-1" ><b>Delete</b></button>
+
+</form>
+

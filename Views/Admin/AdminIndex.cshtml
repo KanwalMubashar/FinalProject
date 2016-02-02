@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "AdminIndex";
+
+}
+@model EadProject.Models.Product
+@Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            //alert($('#p').val());
+
+        });
+</script>
+<link rel="stylesheet" type="text/css" href="~/Content/table.css">
+
+
+<hr />
+<br />
+<div class="row">
+    <form action="~/Admin/AddProduct" method="post" class="form pull-right">
+        <button type="submit" id="submit" class="btn " style=" background-color:#C00033 ;width:13em "><span class="glyphicon glyphicon-plus-sign"><b> Add Product</b></span></button>
+
+    </form>
+
+</div>
+<br />
+<div class="row">
+    <form action="~/Admin/DeleteProduct" method="post" class="form pull-right">
+        <button type="submit" id="submit" class="btn " style=" background-color:#C00033; width:13em "><span class="glyphicon glyphicon-remove"><b> Delete Product</b></span></button>
+
+    </form>
+
+</div>
+<br />
+<div class="row">
+    <form action="~/Admin/Update" method="post" class="form pull-right">
+        <button type="submit" id="submit" class="btn " style=" background-color:#C00033; width:13em "><span class="glyphicon glyphicon-arrow-up"><b> Update Product</b></span></button>
+
+    </form>
+
+</div>
+<br />
+<div class="row">
+    <form action="~/Admin/AllOrders" method="post" class="form pull-right">
+        <button type="submit" id="submit" class="btn " style=" background-color:#C00033; width:13em "><span class="glyphicon glyphicon-list-alt"><b> All Orders</b></span></button>
+
+    </form>
+
+</div>
+<br />
+<br />
+
+    <div class="CSSTableGenerator">
+        <table>
+            <tr>
+                <td>Product Name</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Man/Woman</td>
+                <td>Image</td>
+               
+            </tr>
+            @foreach (var p in ViewBag.productList)
+            {
+
+                <tr>
+                    <td>@p.ProductName</td>
+                    <td>@p.Price</td>
+                    <td>@p.Quantity</td>>
+                    <td>@p.MorW</td>
+                    <td>
+                        <img src="@Url.Content(p.Path)" class="img-responsive " id="p" style="margin: 0 auto;" alt="Image">
+                    </td>
+                   
+                   
+
+                </tr>
+
+            }
+            
+        </table>
+        </div>
+<br />
+<br />
+   
+

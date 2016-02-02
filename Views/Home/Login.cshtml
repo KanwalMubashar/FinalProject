@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@model EadProject.Models.Customer
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+</script>
+
+<div class="row">
+    <h1 align="center">LOGIN</h1>
+    <hr />
+    <h3 align ="center" id="message">@ViewBag.message </h3>
+
+</div>
+<br />
+
+<div class="row">
+    <div class="col-lg-6">
+        <h1 style="color:green">Customer</h1>
+        <br />
+        @using (Html.BeginForm("Verification","Customer",FormMethod.Post))
+        {
+        <div class="form-horizontal">
+            <div class="form-group">
+
+                 @Html.Label("Login Name")
+                 @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control ", @id = "CName", required = "required" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Password")
+                @Html.TextBoxFor(x => x.Password, new { @class = "form-control ", @id = "CPassword", @type = "password", required = "required" })
+            </div>
+
+
+          <div class="form-group">
+               <button type="submit" id="customerbutton" class="btn btn-success"><b>Sign In</b></button>
+           </div>
+
+        </div>
+        }
+    </div>
+    <div class="col-lg-6">
+        <h1 style="color:green">Admin</h1>
+        <br />
+        @using (Html.BeginForm("Verification", "Admin", FormMethod.Post))
+        {
+            <div class="form-horizontal">
+                <div class="form-group">
+
+                    @Html.Label("Name", new { @class = " control-label" })
+                    @Html.TextBox("AdminName", null, new { @class = "form-control ", required = "required" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Password", new { @class = " control-label" })
+                    @Html.TextBox("password", null, new { @class = "form-control ", @type = "password", required = "required" })
+                </div>
+
+                <div class="form-group">
+                        <button type="submit" class="btn btn-success" ><b>Sign In</b></button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<br />
+<br />
+<br />
+<hr />
+<div class="row">
+    <link href="/Content/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <div id="foobar">
+        <footer>
+            <ul>
+                <li>&copy; <b>@DateTime.Now.Year - ShopIn </b></li>
+                <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("Refund & Exchange", "RefundAndExchange", "Home")</li>
+                <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("ShippingInfo", "ShippingInfo", "Home")</li>
+                <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("Privacy Policy", "ContactUs", "Home")</li>
+                <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("About", "About", "Home")</li>
+            </ul>
+        </footer>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

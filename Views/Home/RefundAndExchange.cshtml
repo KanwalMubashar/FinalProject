@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "RefundAndExchange";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<br />
+<hr />
+<div class="container">
+    <div class="row">
+        <h3>REFUNDS AND EXCHANGES</h3>
+        <p>
+            If something isn’t right, or you change your mind, we are happy to accept a return within 14 days of purchase, subject to the Refund and Exchange Policy at the bottom of this page
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h3>RETURN INSTRUCTIONS FOR ONLINE PURCHASES</h3>
+        <p>
+            Items purchased online can be returned by post or to a store in Australia that stocks the same brand for a refund. We can also exchange items in store, but cannot do exchanges via post.
+
+            Please refer to the Refund and Exchange Policy at the bottom of this page to ensure your return meets the requirements.
+        </p>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<hr />
+ <div class="row">
+    <link href="/Content/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <div id="foobar">
+        <footer>
+            <ul>
+                <li>&copy; <b>@DateTime.Now.Year - ShopIn </b></li>
+                <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("Refund & Exchange", "RefundAndExchange", "Home")</li>
+                <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("ShippingInfo", "ShippingInfo", "Home")</li>
+                <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("Privacy Policy", "ContactUs", "Home")</li>
+                <li style=" font-size: 15px ; font-weight:bold"> @Html.ActionLink("About", "About", "Home")</li>
+            </ul>
+        </footer>
+    </div>
+</div>
+   
